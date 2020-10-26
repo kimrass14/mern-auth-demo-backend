@@ -8,6 +8,7 @@ const morgan = require("morgan")
 const cors = require("cors")
 const corsOptions = require("./config/cors")
 const AuthRouter = require("./controllers/user")
+const AuthRouter2 = require("./controllers/notes")
 const auth = require("./auth")
 
 //SETUP MIDDLEWARE
@@ -22,6 +23,8 @@ app.get("/", auth, (req, res) => {
 } )
 
 app.use("/auth", AuthRouter)
+
+app.use("/note", AuthRouter2)
 
 // app.get("/auth", (req, res) => {
 //     res.send("hello world")
